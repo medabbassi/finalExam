@@ -6,6 +6,8 @@ import com.example.finalexam.entities.enumeration.Status;
 import java.util.List;
 
 public interface IStudentService {
-    public Student addStudent(Student student);
-    public List<Student> retrieveStudentByStatus(Status status);
+    Student addStudent(Student student);
+    Student assignStudentToBook(Long studentId, Long isbn);
+    List<Student> retrieveStudentsByStatus(Status status);
+    List<Student> retrieveStudentsByAuthorName(String firstname, String lastname);
 }

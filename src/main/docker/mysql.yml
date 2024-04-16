@@ -1,0 +1,10 @@
+version: '3.8'
+services:
+  library-mysql:
+    image: 'mysql:8.3'
+    restart: always
+    environment:
+      MYSQL_DATABASE: library
+      MYSQL_ALLOW_EMPTY_PASSWORD: true
+    ports:
+      - 127.0.0.1:3306:3306

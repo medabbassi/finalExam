@@ -9,10 +9,28 @@ import java.util.List;
 @Entity
 @Table(name = "book")
 public class Book {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "isbn")
     private Long isbn;
+
+    private String title;
+
+    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
+    private List<Reservation> reservations = new ArrayList<>();
+
+    @JsonIgnoreProperties(value = {"books", "authorID"})
+    @ManyToOne
+    @JoinColumn(name = "author_id") // name of the column in the book table
+    private Author author;
+
+    public Long getIsbn() {
+        return isbn;
+    }
+
+    public void setIsbn(Long isbn) {
+        this.isbn = isbn;
+    }
 
     public String getTitle() {
         return title;
@@ -37,15 +55,4 @@ public class Book {
     public void setAuthor(Author author) {
         this.author = author;
     }
-
-    private String title;
-
-    @OneToMany(mappedBy = "book", cascade = CascadeType.ALL)
-    private List<Reservation> reservations = new ArrayList<>();
-
-    @JsonIgnoreProperties(value = {"books","authorID"})
-    @ManyToOne
-    @JoinColumn(name = "fk_authorid") // name of the column in the book table
-    private Author author;
-
 }

@@ -8,9 +8,10 @@ import java.util.List;
 @Entity
 @Table(name = "author")
 public class Author {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "authorID", nullable = false)
+    @Column(name = "author_id")
     private Long authorID;
 
     @Column(nullable = false)

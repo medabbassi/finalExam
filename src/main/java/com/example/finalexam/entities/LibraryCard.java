@@ -10,7 +10,7 @@ import java.time.LocalDate;
 public class LibraryCard {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "card_id", nullable = false)
+    @Column(name = "card_id")
     private Long cardId;
 
     @Enumerated(value = EnumType.STRING)

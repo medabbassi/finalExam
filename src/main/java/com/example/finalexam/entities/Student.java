@@ -1,6 +1,5 @@
 package com.example.finalexam.entities;
 
-import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import jakarta.persistence.*;
 
@@ -10,10 +9,11 @@ import java.util.List;
 @Entity
 @Table(name = "student")
 public class Student {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "studentID", nullable = false)
-    private Long studentID;
+    @Column(name = "student_id")
+    private Long studentId;
 
     @Column(nullable = false)
     private String firstName;
@@ -30,12 +30,12 @@ public class Student {
     @OneToMany(mappedBy = "student", cascade = CascadeType.ALL)
     private List<Reservation> reservations = new ArrayList<>();
 
-    public Long getStudentID() {
-        return studentID;
+    public Long getStudentId() {
+        return studentId;
     }
 
-    public void setStudentID(Long studentID) {
-        this.studentID = studentID;
+    public void setStudentId(Long studentID) {
+        this.studentId = studentID;
     }
 
     public String getFirstName() {

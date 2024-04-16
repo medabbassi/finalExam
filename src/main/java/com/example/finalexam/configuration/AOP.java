@@ -1,12 +1,10 @@
-package com.example.finalexam.Configuration;
+package com.example.finalexam.configuration;
 
 import org.aspectj.lang.JoinPoint;
 import org.aspectj.lang.annotation.Aspect;
 import org.aspectj.lang.annotation.Before;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
-
-import java.util.Date;
 
 @Aspect
 public class AOP {

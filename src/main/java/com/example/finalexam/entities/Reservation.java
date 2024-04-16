@@ -8,16 +8,16 @@ import java.time.LocalDate;
 @Entity
 @Table(name = "reservation")
 public class Reservation {
+
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "reservationID", nullable = false)
-    private Long reservatioID;
+    private Long reservationId;
 
     private LocalDate startDate = LocalDate.now();
     private LocalDate endDate = LocalDate.now();
 
     @ManyToOne
-    @JoinColumn(name = "studentID") // name of the column in the reservation table
+    @JoinColumn(name = "student_id") // name of the column in the reservation table
     private Student student;
 
     @JsonIgnoreProperties(value = {"reservations","author"})
@@ -25,12 +25,12 @@ public class Reservation {
     @JoinColumn(name = "isbn") // name of the column in the reservation table
     private Book book;
 
-    public Long getReservatioID() {
-        return reservatioID;
+    public Long getReservationId() {
+        return reservationId;
     }
 
-    public void setReservatioID(Long reservatioID) {
-        this.reservatioID = reservatioID;
+    public void setReservationId(Long reservationId) {
+        this.reservationId = reservationId;
     }
 
     public LocalDate getStartDate() {
